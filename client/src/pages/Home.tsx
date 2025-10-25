@@ -125,7 +125,7 @@ function NavigationBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center ml-8 md:ml-2">
+            <div className="flex items-center ml-12 md:ml-4">
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">DIG</span>
               <span className="text-amber-400 mx-1">|</span>
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">LIT</span>
@@ -140,9 +140,9 @@ function NavigationBar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300 group"
+                  className="flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-all duration-300 group shadow-md"
                 >
-                  <Icon className="h-5 w-5 text-white group-hover:text-white" />
+                  <Icon className="h-5 w-5 text-white group-hover:text-white drop-shadow-sm" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               );
@@ -228,8 +228,8 @@ function NineDFramework() {
                   onMouseEnter={() => setHoveredStep(idx)}
                   onMouseLeave={() => setHoveredStep(null)}
                 >
-                  <div className={`relative w-20 h-20 rounded-full font-bold border-2 flex flex-col items-center justify-center backdrop-blur-xl transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-br ${step.color} text-white shadow-2xl`}>
-                    <span className="text-2xl mr-3">{step.icon}<span className="text-xs mt-1 text-white">{step.name}</span></span>
+                  <div className={`relative w-24 h-24 rounded-full font-bold border-2 flex flex-col items-center justify-center backdrop-blur-xl transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-br ${step.color} text-white shadow-2xl`}>
+                    <span className="text-2xl">{step.icon}<span className="text-[10px] mt-1 text-white text-center px-1">{step.name}</span></span>
                     
                     
                     {hoveredStep === idx && (
@@ -278,17 +278,17 @@ function FounderSection() {
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl" />
           
           <div className="relative z-10">
-            <div className="text-6xl text-amber-400/30 mb-6">"</div>
+            <div className="text-4xl text-amber-400/30 mb-2">"</div>
             <p className="text-lg md:text-xl text-amber-100/95 leading-relaxed mb-8 italic">
               In a world illuminated by the lighthouse of disciplined innovation, we navigate complexity with precision and courage. Our craft transcends mere technology—we architect <span className="text-amber-300 font-bold">digital hegemony</span>: ethical, resilient, and unmistakably human-centered.
             </p>
             <p className="text-lg md:text-xl text-amber-200/90 leading-relaxed">
               Every system we build, every team we deploy, every solution we craft is designed with one unwavering purpose: to establish your <span className="text-yellow-400 font-bold">dominance</span> in the digital arena.
             </p>
-            <div className="text-6xl text-amber-400/30 text-right mt-6">"</div>
+            <div className="text-4xl text-amber-400/30 text-right mt-2">"</div>
 
             <div className="text-center mt-8">
-              <p className="text-amber-400/80 text-xl font-bold">S.Z</p>
+              <p className="text-amber-300 text-2xl font-black italic" style={{ fontFamily: "'Brush Script MT', cursive", textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>S.Z</p>
             
             </div>
           </div>
@@ -384,7 +384,7 @@ export default function Home() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center ml-8 md:ml-2">
+            <div className="flex items-center ml-12 md:ml-4">
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">DIG</span>
               <span className="text-amber-400 mx-1">|</span>
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">LIT</span>
@@ -399,9 +399,9 @@ export default function Home() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300 group"
+                  className="flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-all duration-300 group shadow-md"
                 >
-                  <Icon className="h-5 w-5 text-white group-hover:text-white" />
+                  <Icon className="h-5 w-5 text-white group-hover:text-white drop-shadow-sm" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               );
@@ -416,7 +416,7 @@ export default function Home() {
   const pipeSize = clamp("2.5rem", "8vw", "6rem");
 
   const letterStyle: React.CSSProperties = {
-    background: "linear-gradient(180deg, #fef3c7 0%, #fde047 45%, #facc15 100%)",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #e2e8f0 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
