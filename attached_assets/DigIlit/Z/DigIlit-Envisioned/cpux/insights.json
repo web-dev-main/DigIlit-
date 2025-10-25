@@ -1,0 +1,33 @@
+[
+  {
+    "id": "381af086e03db3b80e5a29992e4b819c",
+    "title": "Vision Synthesis: \"digital literacy platform architecture\"",
+    "description": "Cross-domain synthesis across 2 domains",
+    "source_entities": [
+      "05a93d060226a67948784d23e05788b2",
+      "d736011d8ff6f1e746ab698bd05b814b",
+      "30b5359da8f5fb25e67743b4953a6f03",
+      "7358c0b1cd6750611ef72cf230faaf66",
+      "8995ce5691e94577f17475fd3d7b840c",
+      "44efb758794336f2933642bcb9f3236f",
+      "74a1ce367aaee635580d3d3b007a457a",
+      "78988474473e3815e80141d9a17d36c1",
+      "96cfb72468407e10eb469d0da5a25829",
+      "78d5ba77fb507195abf6c53bcddfeac1",
+      "2398955c5ec7dde6e683d256be367290",
+      "defee968ced748eebd6e6052d88b1ded",
+      "dd01ca1d6e1bcf60683c7a32c698c49c",
+      "cc65aba5b42b4eaefe69a74908f883a1",
+      "e2b6b7cca42b8e76f1f1ffa5baccd115",
+      "20bbd08ce5ef09f08813c73ff897dc82",
+      "18739fb69b3b36d4ef69b2b572158c37",
+      "292618d03c4a45db196ab4550f2686e6",
+      "2dcf408e47502b04179b02281466d8e6",
+      "b1cadeb6c5b9cedc4ae2963defb1a719"
+    ],
+    "confidence": 0.9,
+    "insight_type": "synthesis",
+    "actionable_items": [],
+    "created_at": "2025-10-19T02:09:23.070729"
+  }
+]

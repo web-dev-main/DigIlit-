@@ -1,0 +1,27 @@
+AI Commander Magnification Protocol:
+
+PHASE 1: KNOWLEDGE MICROSCOPY
+- gather cpux
+- search "requirement specification gap missing"
+- digest cpux --deep
+
+PHASE 2: COMPONENT MAGNIFICATION  
+- understand "authentication system current state"
+- understand "database architecture and models"
+- understand "API completeness status"
+- understand "deployment requirements"
+
+PHASE 3: GAP CONCEPTION
+- nlp "locate all technical gaps in current implementation"
+- nlp "understand what database tables are needed"
+- nlp "describe complete user authentication flow"
+- nlp "explain payment integration requirements"
+
+PHASE 4: REQUIREMENTS GENERATION
+- execute "Conceive complete technical requirements from micro-analysis: database schema, auth system, API completion, deployment config"
+
+PHASE 5: EXECUTION
+- execute "Generate missing database models and authentication system"
+- execute "Complete all incomplete API endpoints"
+- execute "Create production deployment pipeline"
+- deploy latest

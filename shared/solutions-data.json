@@ -1,0 +1,110 @@
+[
+  {
+    "id": "virtual-assistance",
+    "name": "Virtual Assistance",
+    "icon": "Users",
+    "tagline": "Global talent at your fingertips",
+    "description": "Connect with expert virtual assistants worldwide or offer your services to businesses seeking exceptional talent.",
+    "longDescription": "This section highlights both those who want to offer virtual assistance and those who seek virtual assistance. Globally. We bridge the gap between businesses needing support and talented professionals ready to deliver excellence, creating a seamless marketplace for virtual collaboration.",
+    "features": [
+      "24/7 global talent marketplace",
+      "Verified professional profiles",
+      "Seamless communication tools",
+      "Secure payment processing",
+      "Performance tracking & analytics"
+    ],
+    "benefits": [
+      "Access top-tier talent from anywhere in the world",
+      "Scale your team on-demand without overhead",
+      "Reduce operational costs by up to 70%",
+      "Focus on core business while experts handle the rest"
+    ]
+  },
+  {
+    "id": "ai-assistance",
+    "name": "AI Assistance",
+    "icon": "Bot",
+    "tagline": "Automation that amplifies human potential",
+    "description": "This section explains the revolution of automations how advanced Artificial Intelligence could fill the gaps and reduce workloads and save time.",
+    "longDescription": "Harness the power of cutting-edge AI to automate repetitive tasks, enhance decision-making, and free your team to focus on strategic initiatives. Our AI solutions learn from your workflows and continuously improve efficiency.",
+    "features": [
+      "Intelligent task automation",
+      "Natural language processing",
+      "Predictive analytics & insights",
+      "Machine learning optimization",
+      "Seamless integration with existing tools"
+    ],
+    "benefits": [
+      "Save 10-15 hours per week per employee",
+      "Reduce human error by up to 90%",
+      "Make data-driven decisions in real-time",
+      "Scale operations without proportional cost increase"
+    ]
+  },
+  {
+    "id": "expert-teams",
+    "name": "Expert Teams",
+    "icon": "UsersRound",
+    "tagline": "Guaranteed delivery, from inception to launch",
+    "description": "Hiring, commitments, meeting deadlines, launching a product—all of this is challenging enough, but what breaks the neck is often keeping it all together.",
+    "longDescription": "At DIG|LIT we understand and strongly believe that inceptions should manifest and we bring that for you with guarantee. Our elite teams have delivered hundreds of projects on time, transforming visions into market-ready solutions.",
+    "features": [
+      "Pre-vetted specialist teams",
+      "Dedicated project management",
+      "Agile delivery methodology",
+      "100% on-time delivery guarantee",
+      "Post-launch support & optimization"
+    ],
+    "benefits": [
+      "Zero recruitment overhead or delays",
+      "Access to rare, specialized skill sets",
+      "Predictable timelines and budgets",
+      "Risk-free delivery with money-back guarantee"
+    ]
+  },
+  {
+    "id": "digital-transformation",
+    "name": "Digital Transformation",
+    "icon": "Rocket",
+    "tagline": "From adaptation to market dominance",
+    "description": "Most setups often meet their unwilling end due to resistance to change, few survive because they adapt to change.",
+    "longDescription": "But those who thrive are remembered as pioneers or leaders who often transform. We aim to position you at the top of your domain through a systematic architecture—a humanoid structure growth system which can overtake your business problems and elevate you to the utmost level.",
+    "features": [
+      "Comprehensive digital audit",
+      "Custom transformation roadmap",
+      "Change management framework",
+      "Technology stack modernization",
+      "Employee upskilling programs"
+    ],
+    "benefits": [
+      "Increase operational efficiency by 200-300%",
+      "Become industry leader in your vertical",
+      "Future-proof your business model",
+      "Create sustainable competitive advantage"
+    ]
+  },
+  {
+    "id": "quantum-erp",
+    "name": "Quantum ERP",
+    "icon": "Zap",
+    "tagline": "Your enterprise, in the palm of your hand",
+    "description": "This is the state of hegemony on its own. This is where the world is heading. We stand at the frontier of next-gen futuristic philosophy.",
+    "longDescription": "Where you are powered with a complete quantum palm ERP. Now your Enterprise is in your palm. Manage every aspect of your business from anywhere, with unprecedented speed, security, and intelligence powered by quantum-ready architecture.",
+    "features": [
+      "Real-time enterprise dashboard",
+      "AI-powered resource planning",
+      "Quantum-secure data encryption",
+      "Mobile-first architecture",
+      "Predictive supply chain management",
+      "Integrated financial analytics",
+      "Cross-platform synchronization",
+      "Advanced reporting & insights"
+    ],
+    "benefits": [
+      "Make critical decisions from anywhere, anytime",
+      "Reduce ERP implementation time by 80%",
+      "Achieve 99.99% system uptime",
+      "Future-ready for quantum computing era"
+    ]
+  }
+]

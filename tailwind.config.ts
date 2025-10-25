@@ -2,7 +2,9 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  // Vite's root is the `client` folder, so Tailwind should look relative to
+  // that directory when running inside the dev server.
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       borderRadius: {

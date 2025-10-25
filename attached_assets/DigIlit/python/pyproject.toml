@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diglit-api"
+version = "0.1.0"
+description = "Python client and CLI for Diglit APIs"
+authors = [{ name = "Diglit" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.32",
+  "typer>=0.12",
+  "pydantic>=2.9",
+  "rich>=13.7"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.6.9",
+  "requests-mock>=1.12"
+]
+
+[project.scripts]
+diglit = "diglit_api.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

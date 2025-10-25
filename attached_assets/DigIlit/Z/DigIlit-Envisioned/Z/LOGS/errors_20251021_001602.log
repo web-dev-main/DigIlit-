@@ -1,0 +1,1 @@
+./diglit.sh: line 273: ${PROJECT_ROOT}/${AI_COMMANDER_core.py}: bad substitution

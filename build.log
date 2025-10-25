@@ -1,0 +1,15 @@
+yarn run v1.22.22
+$ vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+vite v7.1.12 building for production...
+transforming...
+✓ 1688 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/public/index.html                   0.74 kB │ gzip:   0.41 kB
+../dist/public/assets/index-DaDrLMps.css   11.29 kB │ gzip:   2.39 kB
+../dist/public/assets/index-B7gnYqUb.js   391.67 kB │ gzip: 120.71 kB
+✓ built in 6.77s
+
+  dist/index.js  29.6kb
+
+Done in 7.88s.

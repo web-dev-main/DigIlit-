@@ -1,0 +1,959 @@
+DIGLIT_CODEBOOK_V1
+brand: Digital Kingdom (Dig|lit)
+description: Machine-readable manifest to scaffold a full-stack, AI-native platform.
+conventions:
+  - All paths are relative to repository root
+  - Create directories as needed before writing files
+  - Overwrite files if they already exist
+  - After generation, run: pnpm install && pnpm dev
+
+# ==========================
+# FILES
+# ==========================
+
+BEGIN_FILE path=package.json
+{
+  "name": "diglit",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "backend/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "^2.1.1"
+  }
+}
+END_FILE
+
+BEGIN_FILE path=pnpm-workspace.yaml
+packages:
+  - apps/*
+  - packages/*
+  - backend/*
+END_FILE
+
+BEGIN_FILE path=turbo.json
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": { "dependsOn": ["^build"], "outputs": ["dist/**", ".next/**"] },
+    "dev": { "cache": false },
+    "lint": {},
+    "test": { "dependsOn": ["^build"], "outputs": ["coverage/**"] }
+  }
+}
+END_FILE
+
+BEGIN_FILE path=.gitignore
+# Node
+node_modules
+*.log
+.next
+out
+coverage
+.DS_Store
+.env*
+
+# Supabase
+supabase/.temp
+supabase/.branches
+END_FILE
+
+BEGIN_FILE path=README.md
+# Dig|lit (Digital Kingdom)
+
+Your Vision + Our Mission = Hegemony. This monorepo hosts the frontend, backend edge functions, AI core, business intelligence, and visual engine.
+
+Quick start:
+- Install: pnpm i
+- Dev: pnpm dev
+- Build: pnpm build
+
+Configure environment via `.env` files (see `apps/web/.env.example`).
+END_FILE
+
+# ==========================
+# FRONTEND — apps/web (Next.js + Tailwind)
+# ==========================
+
+BEGIN_FILE path=apps/web/package.json
+{
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "next": "^14.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "next-seo": "^6.5.0",
+    "@supabase/supabase-js": "^2.45.4",
+    "@sentry/nextjs": "^8.30.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "^14.2.6",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3",
+    "@testing-library/react": "^16.0.1",
+    "@types/react": "^18.3.11",
+    "@types/node": "^22.7.5"
+  }
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/next.config.mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    typedRoutes: true
+  },
+  headers: async () => [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "Permissions-Policy", value: "geolocation=(), microphone=(), camera=()" }
+      ]
+    }
+  ]
+};
+export default nextConfig;
+END_FILE
+
+BEGIN_FILE path=apps/web/tailwind.config.ts
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx}'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          500: '#7C3AED',
+          600: '#6D28D9'
+        }
+      }
+    }
+  },
+  plugins: []
+};
+
+export default config;
+END_FILE
+
+BEGIN_FILE path=apps/web/postcss.config.cjs
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+};
+END_FILE
+
+BEGIN_FILE path=apps/web/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {},
+    "allowJs": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+END_FILE
+
+BEGIN_FILE path=apps/web/next-seo.config.ts
+import { DefaultSeoProps } from 'next-seo';
+
+const config: DefaultSeoProps = {
+  titleTemplate: 'Digital Kingdom | %s',
+  defaultTitle: 'Digital Kingdom (Dig|lit)',
+  description: 'AI-native, zero-budget, elite web presence that feels from the future.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://digital-kingdom.example',
+    siteName: 'Digital Kingdom'
+  },
+  twitter: {
+    handle: '@digitalkingdom',
+    site: '@digitalkingdom',
+    cardType: 'summary_large_image'
+  }
+};
+
+export default config;
+END_FILE
+
+BEGIN_FILE path=apps/web/app/layout.tsx
+import './globals.css';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
+import { Providers } from './providers';
+
+export const metadata = {
+  title: 'Digital Kingdom',
+  description: 'Your Vision + Our Mission = Hegemony'
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="bg-slate-950 text-white">
+        <DefaultSeo {...SEO} />
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/providers.tsx
+'use client';
+import React from 'react';
+import * as Sentry from '@sentry/nextjs';
+
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  Sentry.init({ dsn: process.env.NEXT_PUBLIC_SENTRY_DSN });
+}
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/page.tsx
+import Link from 'next/link';
+import { CTASection } from '../components/home/CTASection';
+import { ServicesPreview } from '../components/home/ServicesPreview';
+
+export default function HomePage() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <nav className="fixed w-full z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold text-white">Digital <span className="text-purple-400">Kingdom</span></div>
+          <div className="space-x-8">
+            <Link href="#services" className="text-white/80 hover:text-white">Services</Link>
+            <Link href="/register" className="text-white/80 hover:text-white">Register</Link>
+            <Link href="/services" className="bg-purple-600 px-6 py-2 rounded-lg hover:bg-purple-500">Get Started</Link>
+          </div>
+        </div>
+      </nav>
+
+      <section className="pt-32 pb-20 px-4 text-center">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">Your Vision + Our Mission</h1>
+          <p className="text-4xl md:text-5xl text-purple-400 font-light mb-8">= Hegemony</p>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto mb-12">
+            We build an elite, AI-native web presence so futuristic visitors wonder how it was even possible.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Link href="/services" className="bg-purple-600 px-8 py-4 rounded-lg text-lg hover:bg-purple-500">Start Your Project</Link>
+            <Link href="#services" className="border border-white/30 px-8 py-4 rounded-lg text-lg hover:bg-white/10">Explore Services</Link>
+          </div>
+        </div>
+      </section>
+
+      <ServicesPreview />
+      <CTASection />
+    </main>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/services/page.tsx
+'use client';
+import { ServicesGrid } from '../../components/home/ServicesPreview';
+export default function ServicesPage() { return <ServicesGrid />; }
+END_FILE
+
+BEGIN_FILE path=apps/web/app/register/page.tsx
+export default function RegisterPage() {
+  return (
+    <div className="min-h-screen bg-slate-900 py-20 px-4">
+      <div className="max-w-xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6">Register</h1>
+        <p className="text-white/70">Coming soon.</p>
+      </div>
+    </div>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/components/home/CTASection.tsx
+export function CTASection() {
+  return (
+    <section className="py-20 px-4 bg-black">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-5xl font-bold mb-6">From Zero Budget to Category Domination</h2>
+        <p className="text-white/70 max-w-3xl mx-auto mb-8">
+          Launch fast, monetize immediately, and scale with AI-native ops.
+        </p>
+        <a href="/services" className="inline-block bg-purple-600 px-8 py-4 rounded-lg text-lg hover:bg-purple-500">Begin</a>
+      </div>
+    </section>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/components/home/ServicesPreview.tsx
+const services = [
+  { id: 'va', icon: '🤖', title: 'AI Virtual Assistants', description: 'Deploy intelligent VAs for any business function', pricing: 'From $500/mo', features: ['24/7', 'Multi-language', 'Industry-specific'] },
+  { id: 'transformation', icon: '⚡', title: 'Digital Transformation', description: 'Complete modernization', pricing: 'From $5,000', features: ['AI Integration', 'Cloud', 'Automation'] },
+  { id: 'erp', icon: '📱', title: 'Palm ERP', description: 'Modular ERP in your palm', pricing: 'From $999/mo', features: ['Mobile-first', 'AI-powered', 'PQ-secure'] },
+  { id: 'consulting', icon: '🎯', title: 'Business Consulting', description: 'Strategy to execution', pricing: 'Custom', features: ['Growth', 'Market', 'Ops'] },
+  { id: 'development', icon: '💻', title: 'Custom Development', description: 'Build anything', pricing: 'From $10,000', features: ['Full-stack', 'AI-native', 'Scalable'] },
+  { id: 'security', icon: '🔒', title: 'Cyber Security', description: 'Zero-trust PQ-ready', pricing: 'From $2,000/mo', features: ['Zero-trust', 'Post-quantum', '24/7'] }
+];
+
+export function ServicesPreview() {
+  return (
+    <section id="services" className="py-20 px-4 bg-black">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-5xl font-bold text-white text-center mb-16">Our Solutions</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {services.map(service => (
+            <div key={service.id} className="bg-gradient-to-br from-purple-900/20 to-slate-900/20 border border-purple-500/20 rounded-xl p-8 hover:border-purple-500/50 transition-all">
+              <div className="text-6xl mb-4">{service.icon}</div>
+              <h3 className="text-2xl font-bold">{service.title}</h3>
+              <p className="text-white/60 mb-4">{service.description}</p>
+              <div className="text-purple-400 font-semibold mb-4">{service.pricing}</div>
+              <ul className="space-y-2 mb-6">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="text-white/70 text-sm">✓ {feature}</li>
+                ))}
+              </ul>
+              <button className="w-full bg-purple-600 py-3 rounded-lg hover:bg-purple-500">Get Started</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/analytics.ts
+export function track(event: string, params: Record<string, any> = {}) {
+  if (typeof window === 'undefined') return;
+  // GA4
+  // @ts-ignore
+  window.gtag && window.gtag('event', event, params);
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/public/robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://digital-kingdom.example/sitemap.xml
+END_FILE
+
+BEGIN_FILE path=apps/web/netlify.toml
+[build]
+  command = "pnpm build"
+  publish = ".next"
+  ignore = "git diff --quiet HEAD^ HEAD apps/web"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+END_FILE
+
+BEGIN_FILE path=apps/web/.env.example
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+NEXT_PUBLIC_SENTRY_DSN=
+SUPABASE_FUNCTIONS_BASE_URL=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+OPENAI_API_KEY=
+TRON_API_BASE=https://api.trongrid.io
+END_FILE
+
+# ==========================
+# FRONTEND API ROUTES (Node runtime)
+# ==========================
+
+BEGIN_FILE path=apps/web/app/api/payments/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const { amount, currency = 'usd', service } = body;
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) return NextResponse.json({ error: 'Stripe key missing' }, { status: 500 });
+
+  const stripe = await import('stripe').then(m => new m.default(key, { apiVersion: '2024-06-20' }));
+  const intent = await stripe.paymentIntents.create({ amount: Math.round(Number(amount) * 100), currency, metadata: { service } });
+  return NextResponse.json({ clientSecret: intent.client_secret });
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/api/verify-crypto/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest) {
+  const { txHash, orderId, toAddress, minAmount } = await req.json();
+  const base = process.env.TRON_API_BASE || 'https://api.trongrid.io';
+  const resp = await fetch(`${base}/v1/transactions/${txHash}`);
+  if (!resp.ok) return NextResponse.json({ verified: false, reason: 'tx_not_found' }, { status: 404 });
+  const data = await resp.json();
+  const tx = data?.data?.[0];
+  if (!tx) return NextResponse.json({ verified: false }, { status: 404 });
+  // Basic checks; extend for contract transfers parsing as needed.
+  return NextResponse.json({ verified: true, tx, orderId });
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/api/ai-chat/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest) {
+  const { messages } = await req.json();
+  const url = process.env.SUPABASE_FUNCTIONS_BASE_URL;
+  const key = process.env.OPENAI_API_KEY;
+  if (!url || !key) return NextResponse.json({ error: 'Missing config' }, { status: 500 });
+  const r = await fetch(`${url}/ai-chat`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` }, body: JSON.stringify({ messages }) });
+  const data = await r.json();
+  return NextResponse.json(data);
+}
+END_FILE
+
+# ==========================
+# LEGAL PAGES
+# ==========================
+
+BEGIN_FILE path=apps/web/app/(legal)/privacy/page.tsx
+export default function Privacy() {
+  return (
+    <main className="max-w-3xl mx-auto py-16 px-4">
+      <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
+      <p className="text-white/70">We respect your privacy. This placeholder should be replaced with GDPR/CCPA-compliant text.</p>
+    </main>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/(legal)/terms/page.tsx
+export default function Terms() {
+  return (
+    <main className="max-w-3xl mx-auto py-16 px-4">
+      <h1 className="text-4xl font-bold mb-6">Terms of Service</h1>
+      <p className="text-white/70">Your use of Digital Kingdom is governed by these terms. Replace with legal-reviewed content.</p>
+    </main>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=apps/web/app/(legal)/cookies/page.tsx
+export default function Cookies() {
+  return (
+    <main className="max-w-3xl mx-auto py-16 px-4">
+      <h1 className="text-4xl font-bold mb-6">Cookie Policy</h1>
+      <p className="text-white/70">We use cookies to improve experience. Replace with full policy and consent mechanism.</p>
+    </main>
+  );
+}
+END_FILE
+
+# ==========================
+# BACKEND — Supabase Edge Functions (Deno)
+# ==========================
+
+BEGIN_FILE path=backend/supabase/config.toml
+[project]
+api_url = "https://api.supabase.com"
+
+[functions]
+[functions.ai-chat]
+verify_jwt = false
+[functions.stripe-payment]
+verify_jwt = false
+[functions.verify-crypto]
+verify_jwt = false
+END_FILE
+
+BEGIN_FILE path=backend/supabase/functions/ai-chat/index.ts
+// Deno Deploy / Supabase Edge Function
+import { createClient } from 'npm:@supabase/supabase-js@2';
+
+Deno.serve(async (req) => {
+  try {
+    const { messages } = await req.json();
+    const openaiKey = Deno.env.get('OPENAI_API_KEY');
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_KEY');
+    if (!openaiKey || !supabaseUrl || !serviceKey) return new Response('Missing env', { status: 500 });
+
+    const completion = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${openaiKey}` },
+      body: JSON.stringify({ model: 'gpt-4o-mini', messages })
+    }).then(r => r.json());
+
+    const reply = completion?.choices?.[0]?.message?.content ?? 'Hello!';
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+    const emailMatch = messages?.[messages.length - 1]?.content?.match(emailRegex);
+
+    const sb = createClient(supabaseUrl!, serviceKey!);
+    if (emailMatch) {
+      await sb.from('leads').insert({ email: emailMatch[0], conversation: messages, status: 'new', source: 'ai_chat' });
+    }
+
+    return new Response(JSON.stringify({ reply, email: emailMatch ? emailMatch[0] : null }), { headers: { 'Content-Type': 'application/json' } });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: String(e) }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+  }
+});
+END_FILE
+
+BEGIN_FILE path=backend/supabase/functions/stripe-payment/index.ts
+// Stripe via Deno using npm spec
+import Stripe from 'npm:stripe@16.6.0';
+
+Deno.serve(async (req) => {
+  try {
+    const { amount, currency = 'usd', service } = await req.json();
+    const key = Deno.env.get('STRIPE_SECRET_KEY');
+    if (!key) return new Response('Missing Stripe key', { status: 500 });
+    const stripe = new Stripe(key, { apiVersion: '2024-06-20' });
+    const intent = await stripe.paymentIntents.create({ amount: Math.round(Number(amount) * 100), currency, metadata: { service } });
+    return new Response(JSON.stringify({ clientSecret: intent.client_secret }), { headers: { 'Content-Type': 'application/json' } });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: String(e) }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+  }
+});
+END_FILE
+
+BEGIN_FILE path=backend/supabase/functions/verify-crypto/index.ts
+Deno.serve(async (req) => {
+  try {
+    const { txHash, orderId } = await req.json();
+    const base = Deno.env.get('TRON_API_BASE') || 'https://api.trongrid.io';
+    const r = await fetch(`${base}/v1/transactions/${txHash}`);
+    if (!r.ok) return new Response(JSON.stringify({ verified: false, reason: 'tx_not_found' }), { status: 404 });
+    const data = await r.json();
+    const tx = data?.data?.[0];
+    return new Response(JSON.stringify({ verified: !!tx, tx, orderId }), { headers: { 'Content-Type': 'application/json' } });
+  } catch (e) {
+    return new Response(JSON.stringify({ verified: false, error: String(e) }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+  }
+});
+END_FILE
+
+BEGIN_FILE path=backend/supabase/migrations/000_init.sql
+create extension if not exists "uuid-ossp";
+
+create table if not exists products (
+  id uuid primary key default uuid_generate_v4(),
+  name text not null,
+  description text,
+  price numeric(10,2) not null,
+  currency text default 'USD',
+  category text,
+  image_url text,
+  stock_quantity integer default 0,
+  is_digital boolean default false,
+  created_at timestamp default now()
+);
+
+create table if not exists orders (
+  id uuid primary key default uuid_generate_v4(),
+  customer_email text not null,
+  total_amount numeric(10,2) not null,
+  payment_method text,
+  payment_status text default 'pending',
+  transaction_hash text,
+  customer_id text,
+  created_at timestamp default now()
+);
+
+create table if not exists order_items (
+  id uuid primary key default uuid_generate_v4(),
+  order_id uuid references orders(id) on delete cascade,
+  product_id uuid references products(id),
+  quantity integer not null,
+  unit_price numeric(10,2) not null
+);
+
+create table if not exists leads (
+  id uuid primary key default uuid_generate_v4(),
+  email text not null,
+  name text,
+  phone text,
+  company text,
+  conversation jsonb,
+  interested_services text[],
+  project_budget text,
+  status text default 'new',
+  source text,
+  created_at timestamp default now()
+);
+
+alter table products enable row level security;
+alter table orders enable row level security;
+alter table leads enable row level security;
+
+create policy "products are viewable by everyone" on products for select using (true);
+create policy "users can view own orders" on orders for select using (auth.uid()::text = customer_id);
+create policy "authenticated users can create orders" on orders for insert with check (auth.role() = 'authenticated');
+END_FILE
+
+# ==========================
+# AI CORE ENGINE (packages/ai-core)
+# ==========================
+
+BEGIN_FILE path=packages/ai-core/package.json
+{
+  "name": "@diglit/ai-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -w -p tsconfig.json"
+  },
+  "devDependencies": { "typescript": "^5.6.3" }
+}
+END_FILE
+
+BEGIN_FILE path=packages/ai-core/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}
+END_FILE
+
+BEGIN_FILE path=packages/ai-core/src/index.ts
+export type Message = { role: 'system' | 'user' | 'assistant'; content: string };
+
+export type PromptSpec = {
+  id: string;
+  system: string;
+  tools?: string[];
+};
+
+export function buildPrompt(spec: PromptSpec, history: Message[]): Message[] {
+  return [{ role: 'system', content: spec.system }, ...history];
+}
+
+export function redactPII(text: string): string {
+  return text.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '[redacted-email]');
+}
+END_FILE
+
+# ==========================
+# VISUAL ENGINE (Design Tokens + UI Primitives)
+# ==========================
+
+BEGIN_FILE path=packages/design-tokens/package.json
+{
+  "name": "@diglit/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts"
+}
+END_FILE
+
+BEGIN_FILE path=packages/design-tokens/src/tokens.json
+{
+  "color": {
+    "brand": { "500": "#7C3AED", "600": "#6D28D9" },
+    "bg": { "default": "#0f172a" },
+    "text": { "primary": "#ffffff", "muted": "#94a3b8" }
+  },
+  "radius": { "md": "0.75rem", "lg": "1rem" },
+  "shadow": { "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1)" }
+}
+END_FILE
+
+BEGIN_FILE path=packages/design-tokens/src/index.ts
+import tokens from './tokens.json' assert { type: 'json' };
+export default tokens;
+END_FILE
+
+BEGIN_FILE path=packages/ui/package.json
+{
+  "name": "@diglit/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "dependencies": { "react": "^18.3.1" }
+}
+END_FILE
+
+BEGIN_FILE path=packages/ui/src/primitive/Button.tsx
+import React from 'react';
+
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'ghost' };
+
+export function Button({ variant = 'primary', className = '', ...rest }: Props) {
+  const base = 'px-4 py-2 rounded-lg transition-colors';
+  const styles = variant === 'primary' ? 'bg-purple-600 hover:bg-purple-500 text-white' : 'border border-white/30 hover:bg-white/10 text-white';
+  return <button className={`${base} ${styles} ${className}`} {...rest} />;
+}
+END_FILE
+
+BEGIN_FILE path=packages/ui/src/primitive/Card.tsx
+import React from 'react';
+export function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="bg-gradient-to-br from-purple-900/20 to-slate-900/20 border border-purple-500/20 rounded-xl p-6">
+      {children}
+    </div>
+  );
+}
+END_FILE
+
+BEGIN_FILE path=packages/ui/src/primitive/Input.tsx
+import React from 'react';
+export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  return <input className="bg-slate-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" {...props} />;
+}
+END_FILE
+
+BEGIN_FILE path=packages/ui/src/index.ts
+export * from './primitive/Button';
+export * from './primitive/Card';
+export * from './primitive/Input';
+END_FILE
+
+# ==========================
+# BUSINESS INTELLIGENCE (analytics helpers)
+# ==========================
+
+BEGIN_FILE path=packages/utils/package.json
+{
+  "name": "@diglit/utils",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts"
+}
+END_FILE
+
+BEGIN_FILE path=packages/utils/src/index.ts
+export function formatCurrency(amount: number, currency: string = 'USD') {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+}
+
+export function eventParams(service: string, source?: string) {
+  return { service_interest: service, traffic_source: source ?? 'unknown' };
+}
+END_FILE
+
+# ==========================
+# OPENAPI SPEC (docs)
+# ==========================
+
+BEGIN_FILE path=docs/api.yaml
+openapi: 3.0.3
+info:
+  title: Diglit Public API
+  version: 1.0.0
+servers:
+  - url: https://digital-kingdom.example/api
+paths:
+  /payments:
+    post:
+      summary: Create Stripe payment intent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount: { type: number }
+                currency: { type: string }
+                service: { type: string }
+      responses:
+        '200': { description: OK }
+  /verify-crypto:
+    post:
+      summary: Verify TRON transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                txHash: { type: string }
+                orderId: { type: string }
+      responses:
+        '200': { description: OK }
+  /ai-chat:
+    post:
+      summary: AI assistant chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role: { type: string }
+                      content: { type: string }
+      responses:
+        '200': { description: OK }
+END_FILE
+
+# ==========================
+# CI/CD (GitHub Actions)
+# ==========================
+
+BEGIN_FILE path=.github/workflows/ci.yml
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+END_FILE
+
+# ==========================
+# SMART CONTRACT (Optional reference — TRON/TVM Solidity)
+# ==========================
+
+BEGIN_FILE path=contracts/escrow/TronEscrow.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+interface IUSDT {
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+  function transfer(address recipient, uint256 amount) external returns (bool);
+}
+
+contract TronEscrow {
+  address public arbiter;
+  IUSDT public usdt;
+
+  struct Deal { address payer; address payee; uint256 amount; bool released; }
+  mapping(bytes32 => Deal) public deals;
+
+  event Deposited(bytes32 indexed orderId, address indexed payer, uint256 amount);
+  event Released(bytes32 indexed orderId, address indexed payee, uint256 amount);
+  event Refunded(bytes32 indexed orderId, address indexed payer, uint256 amount);
+
+  constructor(address _usdt, address _arbiter) { usdt = IUSDT(_usdt); arbiter = _arbiter; }
+
+  function deposit(bytes32 orderId, uint256 amount, address payee) external {
+    require(deals[orderId].amount == 0, 'exists');
+    require(usdt.transferFrom(msg.sender, address(this), amount), 'xfer');
+    deals[orderId] = Deal({ payer: msg.sender, payee: payee, amount: amount, released: false });
+    emit Deposited(orderId, msg.sender, amount);
+  }
+
+  function release(bytes32 orderId) external {
+    Deal storage d = deals[orderId];
+    require(msg.sender == arbiter || msg.sender == d.payer, 'auth');
+    require(!d.released && d.amount > 0, 'state');
+    d.released = true;
+    require(usdt.transfer(d.payee, d.amount), 'xfer');
+    emit Released(orderId, d.payee, d.amount);
+  }
+
+  function refund(bytes32 orderId) external {
+    Deal storage d = deals[orderId];
+    require(msg.sender == arbiter, 'auth');
+    require(!d.released && d.amount > 0, 'state');
+    uint256 amt = d.amount; d.amount = 0;
+    require(usdt.transfer(d.payer, amt), 'xfer');
+    emit Refunded(orderId, d.payer, amt);
+  }
+}
+END_FILE
+
+# ==========================
+# HOW TO RUN (for humans)
+# ==========================
+
+BEGIN_FILE path=docs/GETTING_STARTED.md
+1) Install toolchain
+   - Node 20 + pnpm
+2) Install deps
+   - pnpm install
+3) Environment
+   - Copy apps/web/.env.example to apps/web/.env and fill keys
+4) Dev
+   - pnpm dev (visit http://localhost:3000)
+5) Supabase functions
+   - supabase functions deploy ai-chat stripe-payment verify-crypto
+END_FILE

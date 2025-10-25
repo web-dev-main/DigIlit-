@@ -1,0 +1,7 @@
+📋 QUICK SUMMARY:
+Frontend: Next.js app with 4+ pages, 4+ API routes
+Backend: Python API with AI Commander system
+AI: Complete automation and code generation
+
+🚀 START: python Z/DigIlit-Envisioned/ai_commander_core.py
+🌐 WEB: cd apps/web && npm run dev

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "business-strategy",
+    "number": "1",
+    "name": "Business & Corporate Strategy",
+    "icon": "BarChart3",
+    "tagline": "Strategic excellence from vision to execution",
+    "services": [
+      "Program, Project & Portfolio Management (PMO)",
+      "Business Process Optimization (BPR)",
+      "Governance, Risk & Compliance (GRC)",
+      "Policy Design & Documentation",
+      "Organizational Development (OD)",
+      "Change & Performance Management",
+      "Legal & Regulatory Advisory",
+      "Internal Audit & Quality Control",
+      "Investor Relations & Stakeholder Reporting"
+    ]
+  },
+  {
+    "id": "brand-marketing",
+    "number": "2",
+    "name": "Brand, Marketing & Advertising",
+    "tagline": "We build visibility, authority, and trust",
+    "icon": "Megaphone",
+    "services": [
+      "Branding & Positioning",
+      "Advertising Campaigns (Google, Meta, LinkedIn, TikTok, YouTube)",
+      "Digital Marketing & Automation",
+      "SEO / SEM / PPC Strategy",
+      "Social Media Management & Content Calendars",
+      "Performance Marketing & Funnel Optimization",
+      "Copywriting & Creative Direction",
+      "Video, Motion & Visual Production",
+      "Media Buying & Influencer Partnerships",
+      "PR & Communication Strategy",
+      "Virtual Marketing Teams & Assistants"
+    ]
+  },
+  {
+    "id": "product-development",
+    "number": "3",
+    "name": "Product Development & Innovation",
+    "tagline": "Transforming ideas into functional realities",
+    "icon": "Lightbulb",
+    "services": [
+      "Product Strategy & Ideation",
+      "Research & Development (R&D)",
+      "UX/UI Design & Experience Architecture",
+      "Frontend & Backend Development",
+      "SaaS & Platform Engineering",
+      "MVP Development",
+      "Quality Assurance (QA) & Testing",
+      "Agile Product Management",
+      "Documentation & Training Resources",
+      "Lifecycle Management & Optimization"
+    ]
+  },
+  {
+    "id": "operations-logistics",
+    "number": "4",
+    "name": "Operations, Logistics & Event Management",
+    "tagline": "Smooth execution, every time—virtual or physical",
+    "icon": "Target",
+    "services": [
+      "Business Operations Setup",
+      "SOPs & Workflow Design",
+      "Supply Chain Management",
+      "Procurement & Vendor Coordination",
+      "Logistics Planning & Optimization",
+      "Event Management (Corporate, Product Launches, Conferences)",
+      "Virtual & Hybrid Event Hosting",
+      "Resource Scheduling & Coordination",
+      "Remote Operations Management"
+    ]
+  },
+  {
+    "id": "people-hr",
+    "number": "5",
+    "name": "People, HR & Organizational Development",
+    "tagline": "Empowering teams to deliver excellence",
+    "icon": "UsersRound",
+    "services": [
+      "HR Strategy & Policy Design",
+      "Recruitment & Virtual Staffing",
+      "Onboarding & Employee Experience",
+      "Learning & Development (L&D)",
+      "Corporate Training Programs",
+      "Executive & Leadership Coaching",
+      "Culture, DEI & Talent Retention",
+      "Payroll & HR Administration",
+      "Virtual HR Assistant Services"
+    ]
+  },
+  {
+    "id": "finance-accounting",
+    "number": "6",
+    "name": "Finance, Accounting & Risk",
+    "tagline": "Financial clarity meets strategic foresight",
+    "icon": "Wallet",
+    "services": [
+      "Accounting & Bookkeeping",
+      "Virtual CFO & Controller Services",
+      "Financial Planning & Analysis (FP&A)",
+      "Treasury & Cash Flow Management",
+      "Tax Strategy & Compliance",
+      "Investment & Cost Optimization",
+      "Audit, Risk Assessment & Reporting",
+      "Forecasting & Budget Modeling"
+    ]
+  },
+  {
+    "id": "legal-compliance",
+    "number": "7",
+    "name": "Legal, Compliance & Advisory",
+    "tagline": "Smart counsel for complex environments",
+    "icon": "Scale",
+    "services": [
+      "Legal Consultancy (Corporate, IP, Contracts)",
+      "Business Formation & Structuring",
+      "Trademark, Copyright & IP Management",
+      "Contract Drafting & Review",
+      "Compliance & Policy Design",
+      "Due Diligence & Legal Risk Assessment",
+      "Arbitration & Mediation Support",
+      "Virtual Legal Assistants"
+    ]
+  },
+  {
+    "id": "technology-systems",
+    "number": "8",
+    "name": "Technology, Systems & Security",
+    "tagline": "The digital core of modern business",
+    "icon": "Shield",
+    "services": [
+      "System Architecture & Cloud Infrastructure",
+      "Software & Platform Development",
+      "AI, Automation & API Integration",
+      "Data Analytics & Business Intelligence (BI)",
+      "Cybersecurity & Information Assurance",
+      "DevOps & Infrastructure Management",
+      "IT Support (Remote Teams)",
+      "Digital Transformation Consulting",
+      "Process Automation (RPA / No-Code Workflows)"
+    ]
+  },
+  {
+    "id": "research-data",
+    "number": "9",
+    "name": "Research, Data & Intelligence",
+    "tagline": "Turning raw data into strategic advantage",
+    "icon": "Database",
+    "services": [
+      "Market & Industry Research",
+      "Competitive Intelligence",
+      "Predictive Analytics & Forecasting",
+      "Data Visualization & Dashboards",
+      "Research Documentation & Insights",
+      "Academic & Technical Research Projects",
+      "Virtual Research Analysts"
+    ]
+  },
+  {
+    "id": "training-coaching",
+    "number": "10",
+    "name": "Training, Coaching & Capability Development",
+    "tagline": "Upskill. Reskill. Evolve.",
+    "icon": "GraduationCap",
+    "services": [
+      "Professional & Technical Training",
+      "Leadership Coaching",
+      "Soft Skills & Communication Programs",
+      "AI, Data & Automation Workshops",
+      "Business Simulation & Strategic Games",
+      "Organizational Learning Systems",
+      "Virtual Instructor-Led Training (VILT)",
+      "Certification & Custom LXP Programs"
+    ]
+  },
+  {
+    "id": "media-creative",
+    "number": "11",
+    "name": "Media, Creative & Content Studio",
+    "tagline": "Where storytelling meets strategy",
+    "icon": "Palette",
+    "services": [
+      "Graphic Design & Motion Graphics",
+      "Video Editing & Production",
+      "Scriptwriting & Storyboarding",
+      "Podcast Setup & Management",
+      "Photography & Digital Content Creation",
+      "Web & Landing Page Design",
+      "Brand Collateral & Presentation Design",
+      "Creative Direction for Campaigns",
+      "Virtual Creative Studio on Demand"
+    ]
+  },
+  {
+    "id": "sustainability-csr",
+    "number": "12",
+    "name": "Sustainability, CSR & Impact",
+    "tagline": "Building profit with purpose",
+    "icon": "Leaf",
+    "services": [
+      "CSR & ESG Strategy",
+      "Impact Assessment & Reporting",
+      "Sustainable Operations Design",
+      "Green Supply Chain Advisory",
+      "Diversity & Inclusion Initiatives",
+      "Community Partnership Development"
+    ]
+  },
+  {
+    "id": "virtual-operations",
+    "number": "13",
+    "name": "Virtual Operations & Remote Workforce",
+    "tagline": "Delegate smart. Scale fast. Operate globally.",
+    "icon": "Globe",
+    "services": [
+      "Executive Virtual Assistants (EVA)",
+      "Administrative & Scheduling Support",
+      "CRM & Database Management",
+      "Lead Generation & Prospecting",
+      "Customer Support (Email / Chat / Voice)",
+      "E-commerce & Store Management",
+      "Document Preparation & Reporting",
+      "Research & Data Entry",
+      "Social Media Monitoring & Engagement",
+      "Virtual PMO & Team Coordination",
+      "Helpdesk & Remote IT Support",
+      "Virtual Back-Office Services"
+    ]
+  }
+]

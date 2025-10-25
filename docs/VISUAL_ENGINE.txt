@@ -1,0 +1,151 @@
+DIG|LIT VISUAL ENGINE - UI/UX FRAMEWORK
+========================================
+
+OVERVIEW
+--------
+The Visual Engine provides a unified, high-performance rendering system for all DIG|LIT
+interfaces, ensuring consistent brand experience and exceptional user interactions.
+
+DESIGN SYSTEM
+-------------
+
+1. COMPONENT LIBRARY
+   - Atomic design methodology (atoms, molecules, organisms)
+   - Pre-built shadcn/ui components with DIG|LIT theming
+   - Custom components (ThirteenPointSeal, AtomToStar, etc.)
+   - Accessible, WCAG 2.1 AA compliant
+   - Fully responsive across all devices
+
+2. TYPOGRAPHY
+   - Primary: Orbitron (900, 700 weights) for headers
+   - Secondary: Inter (300-700 weights) for body text
+   - Fluid typography using clamp() for responsiveness
+   - Consistent hierarchy and spacing
+
+3. COLOR PALETTE
+   - Primary: Amber/Gold (#fbbf24, #fde047, #facc15)
+   - Background: Black (#000000) with gradient overlays
+   - Semantic colors for success, warning, error states
+   - Dark mode support (primary design)
+   - Light mode adaptation capability
+
+4. ANIMATION SYSTEM
+   - Micro-interactions for user feedback
+   - Loading states and skeleton screens
+   - Page transitions using Framer Motion
+   - Scroll-triggered animations
+   - Performance-optimized (60fps target)
+
+VISUAL COMPONENTS
+-----------------
+
+1. NAVIGATION
+   - Fixed header with blur backdrop
+   - Responsive mobile menu
+   - Breadcrumb navigation
+   - Sidebar for complex applications
+   - Search interface
+
+2. DATA VISUALIZATION
+   - Charts using Recharts library
+   - Custom SVG graphics
+   - Real-time data updates
+   - Interactive tooltips and legends
+   - Exportable visualizations
+
+3. FORMS & INPUTS
+   - React Hook Form integration
+   - Real-time validation feedback
+   - Multi-step form wizards
+   - File upload with progress
+   - Auto-save functionality
+
+4. CARDS & LAYOUTS
+   - Product cards with hover effects
+   - Service category cards with expansion
+   - Solution detail pages
+   - Grid and masonry layouts
+   - Asymmetric content sections
+
+5. MODALS & OVERLAYS
+   - Dialog system for confirmations
+   - Drawer components for mobile
+   - Toast notifications
+   - Loading overlays
+   - Image lightbox
+
+BRAND ELEMENTS
+--------------
+
+1. THIRTEEN-POINT SEAL
+   - Sacred geometry representation
+   - Multiple size variations
+   - Used as background watermark
+   - Animated rotation on scroll
+   - Brand identity centerpiece
+
+2. ATOM-TO-STAR ANIMATION
+   - Symbolizes transformation
+   - Navigation accent element
+   - Loading state indicator
+   - Morphing cycle: 3.8 seconds
+
+3. BLINKING PIPE
+   - Centered in seal circle
+   - Golden glow effect (#fde047)
+   - 1.5s blink animation
+   - Brand mark separator
+
+TECHNICAL IMPLEMENTATION
+-------------------------
+- Framework: React 18+ with TypeScript
+- Styling: Tailwind CSS + Custom CSS
+- Animations: Framer Motion + CSS animations
+- Icons: Lucide React + Custom SVG
+- State: TanStack Query for server state
+- Routing: Wouter (lightweight)
+
+PERFORMANCE OPTIMIZATION
+-------------------------
+- Code splitting by route
+- Lazy loading for heavy components
+- Image optimization (WebP, responsive)
+- Virtual scrolling for long lists
+- Memoization for expensive renders
+- Lighthouse score target: 95+
+
+RESPONSIVE DESIGN
+-----------------
+- Mobile-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Touch-friendly interactions
+- Adaptive layouts per device
+- Progressive enhancement
+
+ACCESSIBILITY
+-------------
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader optimization
+- Focus management
+- Color contrast compliance
+
+THEME SYSTEM
+------------
+- CSS custom properties
+- Dark mode (default)
+- Light mode support
+- High contrast mode
+- User preference detection
+- Persistent theme selection
+
+INTEGRATION POINTS
+------------------
+- Backend API for dynamic content
+- Business Analytics for charts/graphs
+- AI Core Engine for intelligent UI
+- Quantum ERP for dashboard interfaces
+
+Last Updated: 2025-10-24
+Status: Planning Phase

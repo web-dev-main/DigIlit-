@@ -125,7 +125,7 @@ function NavigationBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center ml-4 md:ml-0">
+            <div className="flex items-center ml-8 md:ml-2">
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">DIG</span>
               <span className="text-amber-400 mx-1">|</span>
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">LIT</span>
@@ -142,7 +142,7 @@ function NavigationBar() {
                   href={item.href}
                   className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300 group"
                 >
-                  <Icon className="h-5 w-5 text-white group-hover:text-amber-100" />
+                  <Icon className="h-5 w-5 text-white group-hover:text-white" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               );
@@ -230,7 +230,7 @@ function NineDFramework() {
                 >
                   <div className={`relative w-20 h-20 rounded-full font-bold border-2 flex flex-col items-center justify-center backdrop-blur-xl transition-all duration-300 whitespace-nowrap cursor-pointer bg-gradient-to-br ${step.color} text-white shadow-2xl`}>
                     <span className="text-2xl mr-3">{step.icon}<span className="text-xs mt-1 text-white">{step.name}</span></span>
-                    <span className="text-lg">{step.name}</span>
+                    
                     
                     {hoveredStep === idx && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-4 py-2 bg-black/95 border border-amber-500/50 rounded-lg text-sm text-amber-200 whitespace-nowrap z-50">
@@ -289,10 +289,7 @@ function FounderSection() {
 
             <div className="text-center mt-8">
               <p className="text-amber-400/80 text-xl font-bold">S.Z</p>
-            </div>
             
-            <div className="text-center mt-8">
-              <p className="text-amber-400/80 text-xl font-bold">S.Z</p>
             </div>
           </div>
         </Card>
@@ -387,7 +384,7 @@ export default function Home() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center ml-4 md:ml-0">
+            <div className="flex items-center ml-8 md:ml-2">
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">DIG</span>
               <span className="text-amber-400 mx-1">|</span>
               <span className="text-xl font-black bg-gradient-to-r from-slate-200 via-gray-100 to-slate-300 bg-clip-text text-transparent">LIT</span>
@@ -404,7 +401,7 @@ export default function Home() {
                   href={item.href}
                   className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300 group"
                 >
-                  <Icon className="h-5 w-5 text-white group-hover:text-amber-100" />
+                  <Icon className="h-5 w-5 text-white group-hover:text-white" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               );
@@ -521,7 +518,7 @@ export default function Home() {
                       fontSize: pipeSize,
                       lineHeight: 0.92,
                       fontFamily: "'Orbitron', sans-serif",
-                      fontWeight: 900,
+                      fontWeight: 919,
                       color: "#fde047",
                       filter: "drop-shadow(0 0 30px rgba(250,204,21,1)) drop-shadow(0 0 60px rgba(250,204,21,0.5))",
                     }}

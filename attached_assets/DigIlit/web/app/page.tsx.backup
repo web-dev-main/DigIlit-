@@ -1,0 +1,23 @@
+import Link from 'next/link';
+import { Button } from '@diglit/ui';
+import { ServicesPreview } from '../components/home/ServicesPreview';
+import { CTASection } from '../components/home/CTASection';
+
+export default function HomePage() {
+  return (
+    <>
+      <main className="min-h-screen flex flex-col items-center justify-center gap-8 p-8">
+        <h1 className="text-6xl font-bold text-center">Your Vision + Our Mission = Hegemony</h1>
+        <p className="text-white/70 text-center max-w-2xl">
+          AI-powered solutions with a modular, frontend-first architecture.
+        </p>
+        <div className="flex gap-4">
+          <Link href="/register"><Button size="lg">Get Started</Button></Link>
+          <Link href="/services"><Button variant="outline" size="lg">Explore Services</Button></Link>
+        </div>
+      </main>
+      <ServicesPreview />
+      <CTASection />
+    </>
+  );
+}

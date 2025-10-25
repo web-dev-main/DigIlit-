@@ -1,0 +1,820 @@
+DIG|LIT FRONTEND DESIGN BRIEF
+
+For Quantum Commander AI -
+
+Use Expert Creativity & Coding
+DESIGN SYSTEM
+
+Colors: Black-Dark blue, background with amber/yellow/gold accents
+
+Typography: Orbitron for headers, professional fonts
+
+Style: Enterprise-level, professional, lighthouse-inspired
+
+Layout: Clean, centered, particle background effects
+
+TOP BAR REQUIREMENTS
+center : 9 glowing animated stars (gold/amber)
+
+left: Solutions | Services | Shop | Partner | Login
+
+left : Feather pen icon (search)and Home tab 
+Style: Fixed, backdrop blur, amber borders
+
+HERO SECTION
+Main: "DIG|LIT" large centered
+
+Tagline: "Your Vision + Our Mission = Hegemony" single line
+
+Font sizes: XL (8xl-10xl for logo, 4xl-6xl for tagline)
+
+STRATEGIC VISION TOGGLE
+Three toggleable sections:
+
+Elite Force: "As the world can now see the tapped power of Digital revolution, we still can't ignore the importance of a self organized, skilled workforce, we aim to deliver you a mainframe which surpass your expectations."
+
+INNOVATION MINDSET: "Traditional business models are being disrupted. Those who embrace AI-driven transformation will dominate the market, while others become obsolete. The future belongs to intelligent enterprises."
+
+RESULTS-DRIVEN APPROACH: "Every system I architect is designed with one goal: measurable business impact. We don't just implement technology; we engineer competitive advantages."
+
+9D FRAMEWORK CIRCLE
+Central animated CTA: "Let's Dig" with rotating glow
+
+9 orbiting steps: Dream, Design, Develop, Deploy, Detect, Delegate, Discover, Decide, Disrupt
+
+Animation: Floating orbit with hover effects
+
+"Dream" should be highlighted differently
+
+VISION STATEMENT
+Use existing "Words of Founder" section
+
+Format as elegant paragraph
+
+Signature: "Z - Founder Dig|lit" below
+
+ENHANCED FOOTER
+Compact design, minimal space
+
+Use symbols: 🚀 🌐 💎 🔗 🐦 💻 🎮 📧 📚 👥 🆘 or if you could create animation
+
+Four columns: (Social Media icon to visit fb , linkedin, insta, twitter), center of footer it should run quotes from famous leaders and inspiring  (Music,games,chatbox,Psychothearpy, Donate) , Support (support@digIlit.com)
+
+
+
+Copyright: "© 2025 DIG|LIT. ALL RIGHTS RESERVED. | Z - Founder Dig|lit"
+
+UX IMPROVEMENTS
+Better font sizes throughout
+
+Improved spacing and hierarchy
+
+Professional enterprise feel
+
+Smooth animations and transitions
+
+Mobile responsive
+
+EXISTING ASSETS TO USE
+Particle background from current DiglitLanding
+
+Color scheme: amber-400, yellow-300, amber-500 gradients
+
+Backdrop blur effects
+
+Border styles with amber-500/30 opacity
+
+CREATIVE FREEDOM
+Use AI expertise to enhance animations
+
+Improve visual hierarchy
+
+Add professional touches
+
+Ensure lighthouse-inspired aesthetic
+
+Make it stunning and enterprise-grade
+
+DEPLOYMENT
+Integrate with existing Next.js structure
+
+Maintain current file organization
+
+Ensure all components work together
+
+Test responsiveness
+
+
+Sample code we expect betterfrom you add style and animation that will be remebered
+
+import React, { useState, useEffect } from 'react';
+
+// Enhanced TopBar Component
+function EnhancedTopBar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={`fixed top-0 left-0 right-0 py-4 z-50 transition-all duration-500 ${
+      scrolled ? 'backdrop-blur-3xl bg-black/80 border-b border-amber-500/50 shadow-2xl shadow-amber-500/20' : 'backdrop-blur-xl bg-black/40 border-b border-amber-500/20'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        {/* LEFT: 9 Glowing Stars */}
+        <div className="flex items-center gap-2">
+          {[...Array(9)].map((_, i) => (
+            <div 
+              key={i}
+              className="relative group cursor-pointer"
+              style={{ 
+                animation: `starPulse ${2.5 + i * 0.2}s ease-in-out infinite`,
+                animationDelay: `${i * 0.15}s`
+              }}
+            >
+              <div className="relative w-5 h-5 transform group-hover:scale-150 transition-all duration-500">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-200 via-amber-400 to-yellow-500 shadow-lg shadow-yellow-500/50" />
+                <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-yellow-300 to-amber-500 blur-xl opacity-60 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 rounded-full bg-white/20" style={{ animation: 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite' }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CENTER: Navigation Menu */}
+        <nav className="flex items-center gap-10">
+          {[
+            { name: 'Solutions', href: '#solutions' },
+            { name: 'Services', href: '#services' },
+            { name: 'Shop', href: '#shop' },
+            { name: 'Partner', href: '#partner' },
+            { name: 'Login', href: '#login' }
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="relative text-lg font-bold text-gray-300 hover:text-amber-300 transition-all duration-300 hover:scale-110 tracking-wider group"
+            >
+              {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 group-hover:w-full transition-all duration-500"></span>
+            </a>
+          ))}
+        </nav>
+
+        {/* RIGHT: Icons */}
+        <div className="flex items-center gap-4">
+          <button className="group relative p-3 hover:bg-amber-500/20 rounded-2xl transition-all duration-500 border-2 border-amber-500/30 hover:border-amber-400/70 backdrop-blur-sm overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/50 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <svg className="w-7 h-7 text-amber-300 group-hover:text-yellow-200 transition-colors relative z-10" viewBox="0 0 24 24" fill="none">
+              <path d="M20 20L16.2223 16.2156M18.3158 11.1579C18.3158 13.0563 17.5617 14.8769 16.2193 16.2193C14.8769 17.5617 13.0563 18.3158 11.1579 18.3158C9.2595 18.3158 7.43886 17.5617 6.0965 16.2193C4.75413 14.8769 4 13.0563 4 11.1579C4 9.2595 4.75413 7.43886 6.0965 6.0965C7.43886 4.75413 9.2595 4 11.1579 4C13.0563 4 14.8769 4.75413 16.2193 6.0965C17.5617 7.43886 18.3158 9.2595 18.3158 11.1579Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+
+          <button className="group relative p-3 hover:bg-blue-500/20 rounded-2xl transition-all duration-500 border-2 border-blue-500/30 hover:border-blue-400/70 backdrop-blur-sm overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <svg className="w-7 h-7 text-blue-300 group-hover:text-blue-100 transition-colors relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+// Hero Section Component
+function HeroSection() {
+  const [logoVisible, setLogoVisible] = useState(false);
+  const [taglineVisible, setTaglineVisible] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setLogoVisible(true), 300);
+    setTimeout(() => setTaglineVisible(true), 800);
+    setTimeout(() => setStatsVisible(true), 1400);
+  }, []);
+
+  const stats = [
+    { value: '99.9%', label: 'Uptime SLA', icon: '⚡' },
+    { value: '<100ms', label: 'Response Time', icon: '🚀' },
+    { value: '24/7', label: 'AI Monitoring', icon: '🤖' },
+    { value: '∞', label: 'Scalability', icon: '📈' }
+  ];
+
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(251,191,36,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(251,191,36,0.03)_1px,transparent_1px)] bg-[size:50px_50px] opacity-40"></div>
+      
+      <div className="max-w-7xl w-full text-center space-y-16 relative z-10">
+        
+        {/* DIG|LIT Logo */}
+        <div className={`transition-all duration-1000 transform ${
+          logoVisible ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10'
+        }`}>
+          <h1 className="text-8xl lg:text-9xl font-black tracking-tighter mb-8 relative" style={{ fontFamily: 'monospace' }}>
+            <span className="relative inline-block group">
+              <span className="text-white drop-shadow-2xl relative z-10 hover:scale-105 transition-transform inline-block">DIG</span>
+              <div className="absolute inset-0 blur-3xl bg-white/20" style={{ animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-amber-300 via-yellow-400 to-amber-500 mx-6 relative">
+              |
+              <div className="absolute inset-0 blur-2xl bg-amber-400/50" style={{ animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite' }}></div>
+            </span>
+            <span className="relative inline-block group">
+              <span className="text-white drop-shadow-2xl relative z-10 hover:scale-105 transition-transform inline-block">LIT</span>
+              <div className="absolute inset-0 blur-3xl bg-white/20" style={{ animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite', animationDelay: '1s' }}></div>
+            </span>
+          </h1>
+        </div>
+
+        {/* Tagline */}
+        <div className={`transition-all duration-1000 delay-500 ${
+          taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h2 className="text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 tracking-wide mb-8">
+            Your Vision + Our Mission = Hegemony
+          </h2>
+          <p className="text-xl lg:text-2xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
+            Transform ambitious visions into autonomous digital empires. <br className="hidden lg:block" />
+            Where AI meets enterprise-grade excellence.
+          </p>
+        </div>
+
+        {/* Stats Dashboard */}
+        <div className={`transition-all duration-1000 delay-1000 ${
+          statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mt-16">
+            {stats.map((stat, i) => (
+              <div 
+                key={stat.label}
+                className="group relative p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-amber-900/20 to-yellow-900/10 border-2 border-amber-500/30 hover:border-amber-400/60 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-amber-500/30 cursor-pointer overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/10 to-amber-500/0 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700"></div>
+                <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-500">{stat.icon}</div>
+                <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-amber-300 to-yellow-400 mb-2 relative z-10">{stat.value}</div>
+                <div className="text-sm text-gray-400 font-semibold tracking-wider relative z-10">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  );
+}
+
+// Strategic Vision Component
+function StrategicVision() {
+  const [activeTab, setActiveTab] = useState('force');
+
+  const tabs = {
+    force: {
+      title: 'Elite Force',
+      icon: '⚔️',
+      content: 'As the world can now see the tapped power of Digital revolution, we still can\'t ignore the importance of a self-organized, skilled workforce. We aim to deliver you a mainframe which surpasses your expectations.',
+      color: 'from-purple-500 to-pink-500'
+    },
+    innovation: {
+      title: 'Innovation Mindset',
+      icon: '🧠', 
+      content: 'Traditional business models are being disrupted. Those who embrace AI-driven transformation will dominate the market, while others become obsolete. The future belongs to intelligent enterprises.',
+      color: 'from-blue-500 to-cyan-500'
+    },
+    results: {
+      title: 'Results-Driven',
+      icon: '🎯',
+      content: 'Every system I architect is designed with one goal: measurable business impact. We don\'t just implement technology; we engineer competitive advantages that compound over time.',
+      color: 'from-amber-500 to-orange-500'
+    }
+  };
+
+  return (
+    <section className="py-32 px-6 relative">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300" style={{ fontFamily: 'monospace' }}>
+            Strategic Vision
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Three pillars that define our approach to digital transformation
+          </p>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
+          {Object.entries(tabs).map(([key, tab]) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`group relative px-10 py-5 rounded-2xl text-xl font-bold transition-all duration-700 border-2 overflow-hidden ${
+                activeTab === key 
+                  ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-black border-amber-300 shadow-2xl shadow-amber-500/50 scale-110'
+                  : 'bg-gradient-to-r from-amber-900/30 to-yellow-900/20 text-amber-200 border-amber-500/40 hover:border-amber-400/70 hover:scale-105'
+              }`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              <span className="relative z-10 flex items-center gap-3">
+                <span className="text-2xl">{tab.icon}</span>
+                {tab.title}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Display */}
+        <div className="relative">
+          {Object.entries(tabs).map(([key, tab]) => (
+            <div
+              key={key}
+              className={`transition-all duration-700 ${
+                activeTab === key 
+                  ? 'opacity-100 translate-y-0 relative' 
+                  : 'opacity-0 translate-y-10 absolute inset-0 pointer-events-none'
+              }`}
+            >
+              <div className="bg-gradient-to-br from-amber-900/20 via-yellow-900/10 to-amber-900/20 border-2 border-amber-500/40 rounded-3xl p-16 backdrop-blur-2xl relative overflow-hidden group hover:border-amber-400/70 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/5 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="absolute top-0 right-0 text-[20rem] opacity-5 font-black">{tab.icon}</div>
+                <p className="text-2xl lg:text-3xl leading-relaxed text-gray-100 font-light relative z-10">
+                  {tab.content}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Enhanced Framework Component
+function EnhancedFramework() {
+  const [hoveredStep, setHoveredStep] = useState(null);
+
+  const frameworkSteps = [
+    { name: 'Dream', desc: 'Envision the impossible', icon: '💭' },
+    { name: 'Design', desc: 'Architect perfection', icon: '🎨' },
+    { name: 'Develop', desc: 'Code excellence', icon: '⚙️' },
+    { name: 'Deploy', desc: 'Launch globally', icon: '🚀' },
+    { name: 'Detect', desc: 'Monitor everything', icon: '🔍' },
+    { name: 'Delegate', desc: 'Automate workflows', icon: '🤖' },
+    { name: 'Discover', desc: 'Uncover insights', icon: '💡' },
+    { name: 'Decide', desc: 'Data-driven choices', icon: '📊' },
+    { name: 'Disrupt', desc: 'Transform industries', icon: '⚡' }
+  ];
+
+  return (
+    <section className="py-40 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent"></div>
+      
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <h2 className="text-5xl lg:text-7xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300" style={{ fontFamily: 'monospace' }}>
+          The 9D Framework
+        </h2>
+        <p className="text-2xl text-gray-300 mb-24 max-w-3xl mx-auto">
+          A revolutionary methodology that transforms visions into reality through nine synchronized dimensions
+        </p>
+
+        <div className="relative w-full max-w-[600px] h-[600px] mx-auto mb-32">
+          {/* Central CTA - Now a link to landing page with wave animation */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <a 
+              href="#landing"
+              className="group relative w-48 h-48 rounded-full overflow-hidden transition-all duration-700 hover:scale-125 cursor-pointer"
+            >
+              {/* Multiple rotating layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600" style={{ animation: 'spin 10s linear infinite' }}></div>
+              <div className="absolute inset-2 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-500 rounded-full" style={{ animation: 'spin 8s linear reverse infinite' }}></div>
+              <div className="absolute inset-4 bg-gradient-to-br from-amber-200 via-yellow-300 to-amber-400 rounded-full backdrop-blur-sm"></div>
+              <div className="absolute inset-6 bg-gradient-to-br from-yellow-100 via-amber-200 to-yellow-300 rounded-full flex items-center justify-center">
+                <span className="relative text-black font-black text-3xl tracking-wider z-10">
+                  Let's<br/>Dig
+                </span>
+              </div>
+              
+              {/* Animated waves emanating from button */}
+              <div className="absolute inset-0 rounded-full">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute inset-0 rounded-full border-2 border-amber-400/40"
+                    style={{
+                      animation: `wave 3s ease-out infinite`,
+                      animationDelay: `${i * 1}s`
+                    }}
+                  ></div>
+                ))}
+              </div>
+              
+              {/* Glow effect */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-amber-500/50 to-yellow-500/50 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
+            </a>
+          </div>
+          
+          {/* Orbiting Steps */}
+          {frameworkSteps.map((step, i) => {
+            const angle = (i / frameworkSteps.length) * 2 * Math.PI - Math.PI / 2;
+            const radius = 260;
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            const isHovered = hoveredStep === step.name;
+            
+            return (
+              <div
+                key={step.name}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500"
+                style={{
+                  left: `calc(50% + ${x}px)`,
+                  top: `calc(50% + ${y}px)`,
+                  zIndex: isHovered ? 50 : 10
+                }}
+                onMouseEnter={() => setHoveredStep(step.name)}
+                onMouseLeave={() => setHoveredStep(null)}
+              >
+                <div className={`relative group cursor-pointer transition-all duration-500 ${
+                  isHovered ? 'scale-150' : 'scale-100'
+                }`}>
+                  <div className={`px-8 py-4 rounded-2xl border-2 backdrop-blur-xl transition-all duration-500 ${
+                    step.name === 'Dream' 
+                      ? 'bg-gradient-to-br from-purple-500/40 to-pink-500/30 border-purple-300 text-purple-100 shadow-2xl shadow-purple-500/40'
+                      : 'bg-gradient-to-br from-amber-900/50 to-yellow-900/40 border-amber-500/60 text-amber-100 hover:border-amber-300 hover:shadow-2xl hover:shadow-amber-500/40'
+                  }`}>
+                    <div className="text-3xl mb-2">{step.icon}</div>
+                    <div className="text-xl font-bold tracking-wider whitespace-nowrap">{step.name}</div>
+                    {isHovered && (
+                      <div className="text-sm mt-2 text-gray-300">{step.desc}</div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Enhanced Footer Component
+function EnhancedFooter() {
+  const [currentQuote, setCurrentQuote] = useState(0);
+  
+  const quotes = [
+    { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+    { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+    { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { text: "Success is not final, failure is not fatal.", author: "Winston Churchill" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const socialLinks = [
+    { name: 'Facebook', icon: '📘', href: '#', color: 'hover:text-blue-400' },
+    { name: 'LinkedIn', icon: '💼', href: '#', color: 'hover:text-blue-300' },
+    { name: 'Instagram', icon: '📸', href: '#', color: 'hover:text-pink-400' },
+    { name: 'Twitter', icon: '🐦', href: '#', color: 'hover:text-sky-400' }
+  ];
+
+  const features = [
+    { name: 'Music', icon: '🎵', href: '#' },
+    { name: 'Games', icon: '🎮', href: '#' },
+    { name: 'Chat', icon: '💬', href: '#' },
+    { name: 'Therapy', icon: '🧘', href: '#' },
+    { name: 'Donate', icon: '💝', href: '#' }
+  ];
+
+  return (
+    <footer className="relative border-t-2 border-amber-500/30 backdrop-blur-3xl bg-black/80 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(251,191,36,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(251,191,36,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
+        <div className="grid md:grid-cols-3 gap-12 mb-16">
+          
+          {/* Social Media */}
+          <div className="text-center md:text-left">
+            <h4 className="text-2xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 flex items-center gap-3 justify-center md:justify-start">
+              <span className="text-3xl">🌐</span> Connect With Us
+            </h4>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  className={`group relative p-4 rounded-2xl bg-gradient-to-br from-amber-900/30 to-yellow-900/20 border-2 border-amber-500/40 hover:border-amber-400/70 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-amber-500/30 ${social.color}`}
+                >
+                  <span className="text-4xl block">{social.icon}</span>
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    {social.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Rotating Quotes */}
+          <div className="text-center">
+            <h4 className="text-2xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 flex items-center gap-3 justify-center">
+              <span className="text-3xl">💡</span> Inspiration
+            </h4>
+            <div className="bg-gradient-to-br from-amber-900/20 to-yellow-900/10 border-2 border-amber-500/30 rounded-2xl p-8 backdrop-blur-xl min-h-[200px] flex flex-col justify-center">
+              <div className="relative overflow-hidden">
+                {quotes.map((quote, i) => (
+                  <div
+                    key={i}
+                    className={`transition-all duration-1000 ${
+                      i === currentQuote 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 absolute inset-0 translate-y-4'
+                    }`}
+                  >
+                    <p className="text-xl text-gray-200 italic mb-4 leading-relaxed">
+                      "{quote.text}"
+                    </p>
+                    <p className="text-amber-300 font-semibold">— {quote.author}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center gap-2 mt-6">
+                {quotes.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentQuote(i)}
+                    className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                      i === currentQuote 
+                        ? 'bg-amber-400 w-8' 
+                        : 'bg-amber-500/30 hover:bg-amber-500/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="text-center md:text-right">
+            <h4 className="text-2xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 flex items-center gap-3 justify-center md:justify-end">
+              <span className="text-3xl">💎</span> Experience
+            </h4>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-end mb-8">
+              {features.map((feature) => (
+                <a
+                  key={feature.name}
+                  href={feature.href}
+                  className="group relative p-4 rounded-2xl bg-gradient-to-br from-amber-900/30 to-yellow-900/20 border-2 border-amber-500/40 hover:border-amber-400/70 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-amber-500/30"
+                >
+                  <span className="text-4xl block">{feature.icon}</span>
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    {feature.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="mt-12">
+              <a 
+                href="mailto:support@diglit.com" 
+                className="inline-flex items-center gap-3 text-lg text-amber-300 hover:text-amber-200 transition-colors group"
+              >
+                <span className="text-2xl group-hover:scale-125 transition-transform">📧</span>
+                support@diglit.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Brand Section */}
+        <div className="text-center py-12 border-t-2 border-amber-500/20">
+          <h3 className="text-4xl font-black mb-4 tracking-tight" style={{ fontFamily: 'monospace' }}>
+            <span className="text-white">DIG</span>
+            <span className="text-amber-400 mx-2">|</span>
+            <span className="text-white">LIT</span>
+          </h3>
+          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+            Architecting autonomous systems for visionary leaders who refuse to settle for ordinary.
+          </p>
+        </div>
+      </div>
+      
+      {/* Copyright Bar */}
+      <div className="border-t-2 border-amber-500/20 py-6 text-center bg-black/60 relative z-10">
+        <p className="text-sm text-gray-500 font-medium tracking-wide">
+          © 2025 DIG|LIT. ALL RIGHTS RESERVED. | <span className="text-amber-400">Z</span> - Founder Dig|lit
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+// Main App Component
+export default function App() {
+  return (
+    <div className="relative min-h-screen bg-black overflow-hidden">
+      {/* Milky Way / Black Hole Background Effect - Fixed */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        {/* Black hole center gradient */}
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-black to-black"></div>
+        
+        {/* Milky Way spiral effect */}
+        <div className="absolute inset-0" style={{ 
+          background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 50%), radial-gradient(ellipse at center, rgba(251, 191, 36, 0.08) 20%, transparent 60%)',
+          transform: 'rotate(0deg)'
+        }}></div>
+        
+        {/* Starfield - Static */}
+        <div className="absolute inset-0">
+          {[...Array(100)].map((_, i) => {
+            const size = Math.random() * 2 + 1;
+            return (
+              <div
+                key={i}
+                className="absolute rounded-full bg-white"
+                style={{
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  opacity: Math.random() * 0.8 + 0.2,
+                  animation: `twinkle ${2 + Math.random() * 3}s ease-in-out infinite`,
+                  animationDelay: `${Math.random() * 3}s`
+                }}
+              ></div>
+            );
+          })}
+        </div>
+        
+        {/* Nebula clouds - Static */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/5 rounded-full blur-3xl"></div>
+        
+        {/* Ambient particles - Moving to create depth */}
+        <div className="absolute inset-0">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-amber-400/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${10 + Math.random() * 20}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <EnhancedTopBar />
+        <HeroSection />
+        <StrategicVision />
+        <EnhancedFramework />
+        <EnhancedFooter />
+      </div>
+
+      {/* Global Styles */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+          color: white;
+          background: black;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        @keyframes starPulse {
+          0%, 100% {
+            transform: scale(1);
+            filter: brightness(1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+          }
+          50% {
+            transform: scale(1.4);
+            filter: brightness(1.8) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+          }
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes ping {
+          75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes wave {
+          0% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(2.5);
+            opacity: 0;
+          }
+        }
+
+        @keyframes float {
+          0% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-100vh) translateX(50px);
+          }
+          100% {
+            transform: translateY(-200vh) translateX(0);
+          }
+        }
+
+        @keyframes twinkle {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: black;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, #f59e0b, #fbbf24);
+          border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, #fbbf24, #f59e0b);
+        }
+
+        /* Smooth transitions for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          html {
+            scroll-behavior: auto;
+          }
+          
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+
+now please Ensure that the screen is optimized for all screens nad devices, 
+the DIG|LIT they all should have same space please
+
+if you can create a 13 point start on the background of DIG|LIT liek a stars connecting dot s a seal to cross 

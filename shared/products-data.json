@@ -1,0 +1,200 @@
+[
+  {
+    "id": "va-starter",
+    "name": "Virtual Assistant Starter",
+    "category": "Virtual Assistance",
+    "description": "Get started with a dedicated part-time virtual assistant for 20 hours per week",
+    "price": "899.00",
+    "features": ["20 hours/week", "General administrative tasks", "Email & calendar management", "Basic research & data entry"],
+    "icon": "Target"
+  },
+  {
+    "id": "va-pro",
+    "name": "Virtual Assistant Pro",
+    "category": "Virtual Assistance",
+    "description": "Full-time dedicated virtual assistant with advanced skills for 40 hours per week",
+    "price": "1699.00",
+    "features": ["40 hours/week", "Advanced administrative tasks", "Project coordination", "CRM management", "Social media scheduling"],
+    "icon": "Zap"
+  },
+  {
+    "id": "va-team",
+    "name": "Virtual Team Package",
+    "category": "Virtual Assistance",
+    "description": "Complete virtual team of 3 specialists covering admin, marketing, and operations",
+    "price": "3999.00",
+    "features": ["3 specialists (120 hours/week total)", "Admin, Marketing & Operations coverage", "Team coordination included", "Weekly reporting"],
+    "icon": "UsersRound"
+  },
+  {
+    "id": "ai-automation-basic",
+    "name": "AI Automation Basic",
+    "category": "AI Solutions",
+    "description": "Automate 3-5 repetitive workflows with custom AI solutions",
+    "price": "2499.00",
+    "features": ["3-5 workflow automations", "AI chatbot integration", "Basic analytics dashboard", "1 month support"],
+    "icon": "Bot"
+  },
+  {
+    "id": "ai-automation-enterprise",
+    "name": "AI Enterprise Suite",
+    "category": "AI Solutions",
+    "description": "Comprehensive AI transformation with custom models and enterprise integrations",
+    "price": "9999.00",
+    "features": ["Unlimited workflow automations", "Custom AI model training", "Advanced analytics & reporting", "6 months support", "Dedicated AI specialist"],
+    "icon": "Rocket"
+  },
+  {
+    "id": "expert-mvp",
+    "name": "MVP Development Team",
+    "category": "Expert Teams",
+    "description": "Dedicated team to build your Minimum Viable Product in 8-12 weeks",
+    "price": "15000.00",
+    "features": ["Full-stack development team", "UX/UI designer", "Project manager", "QA engineer", "8-12 week delivery", "Source code ownership"],
+    "icon": "Zap"
+  },
+  {
+    "id": "expert-saas",
+    "name": "SaaS Development Team",
+    "category": "Expert Teams",
+    "description": "Enterprise-grade SaaS platform development with scalable architecture",
+    "price": "35000.00",
+    "features": ["Senior full-stack developers", "Cloud architect", "DevOps engineer", "Security specialist", "12-16 week delivery", "Post-launch support"],
+    "icon": "Briefcase"
+  },
+  {
+    "id": "expert-mobile",
+    "name": "Mobile App Development",
+    "category": "Expert Teams",
+    "description": "Native iOS and Android app development with cross-platform expertise",
+    "price": "25000.00",
+    "features": ["iOS & Android developers", "Backend API development", "UI/UX design", "App store deployment", "10-14 week delivery"],
+    "icon": "Shield"
+  },
+  {
+    "id": "transformation-audit",
+    "name": "Digital Transformation Audit",
+    "category": "Digital Transformation",
+    "description": "Comprehensive assessment of your digital readiness and transformation roadmap",
+    "price": "4999.00",
+    "features": ["Technology stack audit", "Process analysis", "Gap assessment", "Custom roadmap", "Executive presentation", "3-month action plan"],
+    "icon": "Target"
+  },
+  {
+    "id": "transformation-implementation",
+    "name": "Transformation Implementation",
+    "category": "Digital Transformation",
+    "description": "Full digital transformation execution with change management and training",
+    "price": "49999.00",
+    "features": ["Complete system modernization", "Change management program", "Employee training", "Process optimization", "6-12 month engagement", "Dedicated transformation team"],
+    "icon": "Zap"
+  },
+  {
+    "id": "erp-small",
+    "name": "Quantum ERP - Starter",
+    "category": "Quantum ERP",
+    "description": "Essential ERP modules for small businesses with 5-20 users",
+    "price": "3999.00",
+    "features": ["5-20 user licenses", "Finance & Accounting", "Inventory Management", "CRM basics", "Mobile app access", "Email support"],
+    "icon": "Zap"
+  },
+  {
+    "id": "erp-medium",
+    "name": "Quantum ERP - Business",
+    "category": "Quantum ERP",
+    "description": "Advanced ERP solution for growing businesses with 20-100 users",
+    "price": "9999.00",
+    "features": ["20-100 user licenses", "All Starter features", "HR & Payroll", "Supply Chain Management", "Advanced Analytics", "Priority support", "API access"],
+    "icon": "Zap"
+  },
+  {
+    "id": "erp-enterprise",
+    "name": "Quantum ERP - Enterprise",
+    "category": "Quantum ERP",
+    "description": "Complete enterprise resource planning for organizations with 100+ users",
+    "price": "29999.00",
+    "features": ["Unlimited users", "All Business features", "Multi-currency & multi-entity", "Quantum-secure encryption", "Custom integrations", "Dedicated account manager", "24/7 support"],
+    "icon": "Zap"
+  },
+  {
+    "id": "consulting-strategy",
+    "name": "Strategic Consulting Package",
+    "category": "Consulting",
+    "description": "Executive-level strategic consulting for business growth and optimization",
+    "price": "7500.00",
+    "features": ["10 hours of executive consulting", "Market analysis", "Competitive strategy", "Growth roadmap", "Financial modeling", "Board-ready presentation"],
+    "icon": "Target"
+  },
+  {
+    "id": "consulting-retainer",
+    "name": "Monthly Advisory Retainer",
+    "category": "Consulting",
+    "description": "Ongoing strategic advisory services with monthly engagement",
+    "price": "5000.00",
+    "features": ["15 hours/month advisory", "Strategic planning sessions", "Monthly reports", "On-demand guidance", "Priority access to experts"],
+    "icon": "Briefcase"
+  },
+  {
+    "id": "marketing-campaign",
+    "name": "Digital Marketing Campaign",
+    "category": "Marketing",
+    "description": "90-day comprehensive digital marketing campaign across multiple channels",
+    "price": "8999.00",
+    "features": ["Multi-channel strategy", "Content creation", "Paid advertising management", "SEO optimization", "Analytics & reporting", "90-day campaign"],
+    "icon": "BarChart3"
+  },
+  {
+    "id": "branding-package",
+    "name": "Complete Branding Package",
+    "category": "Marketing",
+    "description": "Full brand identity development from strategy to visual assets",
+    "price": "6500.00",
+    "features": ["Brand strategy", "Logo & visual identity", "Brand guidelines", "Marketing collateral", "Social media templates", "Website design concept"],
+    "icon": "Palette"
+  },
+  {
+    "id": "training-leadership",
+    "name": "Leadership Development Program",
+    "category": "Training",
+    "description": "12-week executive leadership development program for teams of 10-20",
+    "price": "12000.00",
+    "features": ["12 weekly sessions", "Leadership assessments", "One-on-one coaching", "Team workshops", "Custom curriculum", "Certification"],
+    "icon": "GraduationCap"
+  },
+  {
+    "id": "training-technical",
+    "name": "Technical Skills Bootcamp",
+    "category": "Training",
+    "description": "Intensive 8-week technical training program for development teams",
+    "price": "8000.00",
+    "features": ["8-week intensive program", "Hands-on projects", "Expert instructors", "Modern tech stack", "Job-ready skills", "Portfolio development"],
+    "icon": "Shield"
+  },
+  {
+    "id": "security-audit",
+    "name": "Cybersecurity Assessment",
+    "category": "Technology",
+    "description": "Comprehensive security audit and penetration testing",
+    "price": "5999.00",
+    "features": ["Full security audit", "Penetration testing", "Vulnerability assessment", "Compliance review", "Remediation roadmap", "Executive report"],
+    "icon": "Shield"
+  },
+  {
+    "id": "cloud-migration",
+    "name": "Cloud Migration Service",
+    "category": "Technology",
+    "description": "Complete migration of infrastructure to cloud with zero downtime",
+    "price": "19999.00",
+    "features": ["Infrastructure assessment", "Migration planning", "Zero-downtime migration", "Cloud optimization", "Cost analysis", "3-month support"],
+    "icon": "Shield"
+  },
+  {
+    "id": "analytics-platform",
+    "name": "Business Intelligence Platform",
+    "category": "Analytics",
+    "description": "Custom analytics dashboard with real-time data visualization",
+    "price": "11999.00",
+    "features": ["Custom dashboards", "Real-time data integration", "Predictive analytics", "Mobile access", "Automated reporting", "Training included"],
+    "icon": "BarChart3"
+  }
+]
